@@ -1,5 +1,6 @@
 package com.example.shazam.groceryhelper;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                 else if(id == R.id.reward_cards){
                     Toast.makeText(MainActivity.this, "Reward Cards", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, RewardsActivity.class));
                 }
 
                 else if(id == R.id.receipt){
