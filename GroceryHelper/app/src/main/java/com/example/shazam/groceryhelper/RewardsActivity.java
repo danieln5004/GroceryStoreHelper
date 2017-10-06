@@ -1,7 +1,9 @@
 package com.example.shazam.groceryhelper;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -74,7 +76,10 @@ public class RewardsActivity extends AppCompatActivity {
                 Toast.makeText(RewardsActivity.this, "Error saving file", Toast.LENGTH_SHORT).show();
             }
             camera.stopPreview();
-            imageView.setImageBitmap(BitmapFactory.decodeFile(pictureFile.getAbsolutePath().toString()));
+            Toast.makeText(RewardsActivity.this, "Picture location = " + pictureFile.getAbsolutePath().toString(), Toast.LENGTH_SHORT).show();
+            Log.d("Picture", pictureFile.getAbsolutePath().toString());
+            Log.d("Picture", " " + pictureFile.exists());
+            imageView.setImageURI(Uri.fromFile(pictureFile));
         }
     };
 
