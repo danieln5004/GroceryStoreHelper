@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(id == R.id.check_list){
                     Toast.makeText(MainActivity.this, "Check List", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, checkList.class));
                 }
 
                 else if(id == R.id.reward_cards){
