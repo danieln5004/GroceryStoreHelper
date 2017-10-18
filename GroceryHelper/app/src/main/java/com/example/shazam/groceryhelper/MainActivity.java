@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import android.widget.Button;
 
@@ -32,6 +33,28 @@ public class MainActivity extends AppCompatActivity {
         rewardsButton = (Button) findViewById(R.id.Rewards_card_button);
         checklistButton = (Button) findViewById(R.id.Check_list_button);
         receiptButton = (Button) findViewById(R.id.Receipts_button);
+
+        rewardsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RewardsActivity.class));
+            }
+        });
+
+        checklistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, checkList.class));
+
+            }
+        });
+
+        receiptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, receipts.class));
+            }
+        });
 
 
 
@@ -66,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                 else if(id == R.id.receipt){
                     Toast.makeText(MainActivity.this, "Receipt", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, receipts.class));
                 }
 
                 return true;

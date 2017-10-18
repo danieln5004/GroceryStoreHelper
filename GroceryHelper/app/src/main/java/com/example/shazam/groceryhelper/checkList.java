@@ -20,6 +20,7 @@ public class checkList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_check_list);
         ListView chl = (ListView) findViewById(R.id.Checkable_list);
         chl.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
