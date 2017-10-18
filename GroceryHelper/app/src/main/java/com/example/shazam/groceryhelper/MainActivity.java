@@ -9,11 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.Button;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
+    Button rewardsButton;
+    Button checklistButton;
+    Button receiptButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
         dl = (DrawerLayout) findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
+
+        rewardsButton = (Button) findViewById(R.id.Rewards_card_button);
+        checklistButton = (Button) findViewById(R.id.Check_list_button);
+        receiptButton = (Button) findViewById(R.id.Receipts_button);
+
+
+
 
         dl.addDrawerListener(abdt);
         abdt.syncState();
@@ -54,9 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 else if(id == R.id.receipt){
                     Toast.makeText(MainActivity.this, "Receipt", Toast.LENGTH_SHORT).show();
                 }
-
-
-
 
                 return true;
             }

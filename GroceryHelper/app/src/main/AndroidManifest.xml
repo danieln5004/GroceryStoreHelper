@@ -41,6 +41,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.shazam.groceryhelper.MainActivity" />
         </activity>
+        <activity android:name=".receipts"></activity>
     </application>
 
 </manifest>
