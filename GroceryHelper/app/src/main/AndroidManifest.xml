@@ -3,8 +3,10 @@
     package="com.example.shazam.groceryhelper">
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
@@ -30,6 +32,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.shazam.groceryhelper.MainActivity" />
         </activity>
+        <activity
+            android:name=".checkList"
+            android:label="@string/title_activity_check_list"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shazam.groceryhelper.MainActivity" />
+        </activity>
+        <activity android:name=".receipts"></activity>
     </application>
 
 </manifest>

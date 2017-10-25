@@ -22,6 +22,41 @@
         tools:context="com.example.shazam.groceryhelper.MainActivity">
 
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="62dp"
+            android:text="Grocery Store Helper "
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/Check_list_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:text="Check List " />
+
+        <Button
+            android:id="@+id/Rewards_card_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Rewards Card" />
+
+        <Button
+            android:id="@+id/Receipts_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Rewards_card_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp"
+            android:text="Receipt" />
     </RelativeLayout>
 
 
