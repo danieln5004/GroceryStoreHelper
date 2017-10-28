@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,9 @@ import java.util.ArrayList;
 
 public class checkList extends AppCompatActivity {
     ArrayList<String> selectedItems = new ArrayList<>();
+    ArrayList<String> items = new ArrayList<>();
+    Button showCheckListButton;
+    EditText addItemView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +28,13 @@ public class checkList extends AppCompatActivity {
 
         setContentView(R.layout.activity_check_list);
         ListView chl = (ListView) findViewById(R.id.Checkable_list);
+        showCheckListButton = (Button)findViewById(R.id.add_list_button);
+        addItemView = (EditText)findViewById(R.id.addItemTextView);
         chl.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        String [] items = {"corn", "paper towels", "bread"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_check_list, R.id.txt_lan, items);
+        items.add("corn");
+        items.add("paper towels");
+        items.add("bread");
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_check_list, R.id.txt_lan, items);
         chl.setAdapter(adapter);
         chl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -37,17 +46,22 @@ public class checkList extends AppCompatActivity {
                 }
                 else
                     selectedItems.add(selectedItem);
+                //Toast.makeText(checkList.this, "SELECTED : " + selectedItem, Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
-
-
-    public void showSelectedItem (View view){
-        String items="";
-        for(String item:selectedItems){
-            items+="-"+items+"\n";
-        }
-        Toast.makeText(this, "You have selected \n"+ items, Toast.LENGTH_LONG).show();
+        showCheckListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String selecteditems="";
+                for(String item:selectedItems){
+                    selecteditems+="-"+item+"\n";
+                }
+                //Toast.makeText(checkList.this, "You have selected \n"+ selecteditems, Toast.LENGTH_LONG).show();
+                items.add(addItemView.getText().toString());
+                addItemView.setText("");
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 }
