@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         receiptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, receipts.class));
+                startActivity(new Intent(MainActivity.this, receipt.class));
             }
         });
 
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                 else if(id == R.id.receipt){
                     Toast.makeText(MainActivity.this, "Receipt", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, receipts.class));
+                    startActivity(new Intent(MainActivity.this, receipt.class));
                 }
 
                 return true;
