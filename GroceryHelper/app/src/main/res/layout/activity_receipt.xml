@@ -20,22 +20,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_receipt" />
+    <include layout="@layout/content_receipt"
+        android:id="@+id/include" />
 
-    <com.github.sundeepk.compactcalendarview.CompactCalendarView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/compactcalendar_view"
-        android:layout_width="fill_parent"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:layout_height="250dp"
-        app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextSize="12sp"
-        app:compactCalendarBackgroundColor="#1a67ec"
-        app:compactCalendarTextColor="#fff"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#a9c1ea"
-        app:compactCalendarCurrentDayBackgroundColor="#327bf9"
-        app:compactCalendarMultiEventIndicatorColor="#fff"
-        />
+
 
 </android.support.design.widget.CoordinatorLayout>
