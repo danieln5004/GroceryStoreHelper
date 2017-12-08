@@ -135,12 +135,6 @@ public class receipt extends AppCompatActivity {
                     }
                 });
 
-                if (dateClicked.toString().compareTo("Fri Oct 21 00:00:00 AST 2016") == 0) {
-                    Toast.makeText(context, "Went to the Store", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Spent:", Toast.LENGTH_SHORT).show();
-                }
-
                 queue.add(jsonObjectRequest);
             }
 
