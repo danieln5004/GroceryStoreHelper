@@ -3,6 +3,6 @@
     <string name="Open">Grocery Helper</string>
     <string name="Close">Grocery Helper</string>
     <string name="title_activity_rewards">RewardsActivity</string>
-    <string name="title_activity_check_list">checkList</string>
+    <string name="title_activity_check_list">Add grocery items</string>
     <string name="title_activity_receipt">receipt</string>
 </resources>

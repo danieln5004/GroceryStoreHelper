@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -44,6 +45,10 @@ public class RewardsActivity extends AppCompatActivity {
         previewScreen.addView(cameraPreview);
 
         imageView = (ImageView)findViewById(R.id.cardView);
+
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "GroceryHelper");
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_CARD" + ".jpg");
+        imageView.setImageURI(Uri.fromFile(mediaFile));
 
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +84,7 @@ public class RewardsActivity extends AppCompatActivity {
             Toast.makeText(RewardsActivity.this, "Picture location = " + pictureFile.getAbsolutePath().toString(), Toast.LENGTH_SHORT).show();
             Log.d("Picture", pictureFile.getAbsolutePath().toString());
             Log.d("Picture", " " + pictureFile.exists());
+            Log.d("HAHA", " " + Uri.fromFile(pictureFile));
             imageView.setImageURI(Uri.fromFile(pictureFile));
         }
     };
@@ -92,8 +98,7 @@ public class RewardsActivity extends AppCompatActivity {
             }
         }
 
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_CARD" + ".jpg");
 
         return mediaFile;
     }
