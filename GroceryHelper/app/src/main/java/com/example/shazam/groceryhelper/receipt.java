@@ -137,13 +137,13 @@ public class receipt extends AppCompatActivity {
                             Toast.makeText(context, response.getString("amount"), Toast.LENGTH_SHORT).show();
                         }
                         catch (JSONException e) {
-                            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
