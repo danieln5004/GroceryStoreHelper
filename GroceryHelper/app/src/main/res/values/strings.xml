@@ -2,7 +2,7 @@
     <string name="app_name">Grocery Helper</string>
     <string name="Open">Grocery Helper</string>
     <string name="Close">Grocery Helper</string>
-    <string name="title_activity_rewards">RewardsActivity</string>
+    <string name="title_activity_rewards">Add a store rewards card</string>
     <string name="title_activity_check_list">Add grocery items</string>
     <string name="title_activity_receipt">receipt</string>
 </resources>

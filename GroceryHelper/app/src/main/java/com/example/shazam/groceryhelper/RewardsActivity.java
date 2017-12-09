@@ -81,14 +81,16 @@ public class RewardsActivity extends AppCompatActivity {
                 Toast.makeText(RewardsActivity.this, "Error saving file", Toast.LENGTH_SHORT).show();
             }
             camera.stopPreview();
-            Toast.makeText(RewardsActivity.this, "Picture location = " + pictureFile.getAbsolutePath().toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(RewardsActivity.this, "Picture location = " + pictureFile.getAbsolutePath().toString(), Toast.LENGTH_SHORT).show();
             Log.d("Picture", pictureFile.getAbsolutePath().toString());
             Log.d("Picture", " " + pictureFile.exists());
-            Log.d("HAHA", " " + Uri.fromFile(pictureFile));
+            //Log.d("HAHA", " " + Uri.fromFile(pictureFile));
             imageView.setImageURI(Uri.fromFile(pictureFile));
         }
     };
 
+
+    //Gets the photo from the phone storage
     private static File getOutputMediaFile() {
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "GroceryHelper");
         if (!mediaStorageDir.exists()) {

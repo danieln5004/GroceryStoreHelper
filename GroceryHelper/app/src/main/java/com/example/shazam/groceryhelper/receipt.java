@@ -11,6 +11,7 @@ import android.view.View;
 import android.graphics.Color;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Context;
 import android.support.v7.app.ActionBar;
@@ -31,7 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.ref.ReferenceQueue;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -40,12 +43,13 @@ import java.util.Map;
 public class receipt extends AppCompatActivity {
 
     CompactCalendarView compactCalendar;
-    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMddyyyy", Locale.getDefault());
+    private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM", Locale.getDefault());
 
     RequestQueue queue;
     Button submitButton;
     EditText editText;
     String selectedDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +62,15 @@ public class receipt extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setTitle(null);
+
+        Calendar c = Calendar.getInstance();
+        String currentDateTimeString = dateFormatMonth.format(c.getTime());
+
+        actionBar.setTitle(currentDateTimeString);
 
         submitButton = (Button)findViewById(R.id.Submit_transaction);
         editText = (EditText)findViewById(R.id.amount_spent);
+
 
         compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         compactCalendar.setUseThreeLetterAbbreviation(true);
@@ -70,9 +78,8 @@ public class receipt extends AppCompatActivity {
         Event ev1 = new Event(Color.RED, 1477040400000L, "Went to the Store");
         compactCalendar.addEvent(ev1);
 
-        selectedDate = dateFormatMonth.format(new Date());
-
-
+        final SimpleDateFormat dateFormatPOST = new SimpleDateFormat("MMddyyyy", Locale.getDefault());
+        selectedDate = dateFormatPOST.format(new Date());
 
         //post request for button, button sends data
         submitButton.setOnClickListener(new View.OnClickListener(){
@@ -110,11 +117,13 @@ public class receipt extends AppCompatActivity {
         });
         //click on date to get request, clicking on date gets request
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+
+
             @Override
             public void onDayClick(Date dateClicked) {
                 final Context context = getApplicationContext();
 
-                selectedDate = dateFormatMonth.format(Date.parse(dateClicked.toString()));
+                selectedDate = dateFormatPOST.format(Date.parse(dateClicked.toString()));
                 String url = "https://cs449-grocerystore.herokuapp.com/spent/" + selectedDate;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
@@ -122,6 +131,9 @@ public class receipt extends AppCompatActivity {
                     {
                         Log.d("RESPONSE", response.toString());
                         try {
+
+                            //remove toast, add to textview response.getString("amount")
+
                             Toast.makeText(context, response.getString("amount"), Toast.LENGTH_SHORT).show();
                         }
                         catch (JSONException e) {

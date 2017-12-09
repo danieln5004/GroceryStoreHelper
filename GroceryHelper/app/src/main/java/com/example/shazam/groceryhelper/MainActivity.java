@@ -75,20 +75,21 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if(id == R.id.my_profile){
-                    Toast.makeText(MainActivity.this, "My Profile", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "My Profile", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, MainActivity.class));
                 }
                 else if(id == R.id.check_list){
-                    Toast.makeText(MainActivity.this, "Check List", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Check List", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, checkList.class));
                 }
 
                 else if(id == R.id.reward_cards){
-                    Toast.makeText(MainActivity.this, "Reward Cards", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Reward Cards", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, RewardsActivity.class));
                 }
 
                 else if(id == R.id.receipt){
-                    Toast.makeText(MainActivity.this, "Receipt", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Receipt", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, receipt.class));
                 }
 
