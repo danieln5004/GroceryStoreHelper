@@ -6,7 +6,7 @@ This project is for an introduction software engineering class. The project is a
 minSdkVersion: 15
 targetSdkVersion: 26
 
-##Built With
+## Built With
 
 - Android Studio
 - MongoDB (Database)
